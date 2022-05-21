@@ -1,5 +1,5 @@
 hosts:
-  - deptrack-stg.swire.io
+  - mydns.com
 
 protocols:
   http:
@@ -15,7 +15,7 @@ tls:
   enabled: true
   mode: SIMPLE
   dnsNames: 
-  - deptrack-stg.swire.io
+  - mydns.com
   issuerName: "letsencrypt-prod-cluster"
 
 destionationrule:
@@ -38,7 +38,7 @@ virtualservice:
           prefix: /api
     route:
       - destination:
-          host: dependency-track-apiserver
+          host: apiserver
           port:
             number: 80
   - match:
@@ -46,7 +46,7 @@ virtualservice:
           prefix: /
     route:
       - destination:
-          host: dependency-track-frontend
+          host: frontend
           port:
             number: 80
     
