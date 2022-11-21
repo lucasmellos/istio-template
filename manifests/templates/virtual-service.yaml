@@ -20,5 +20,6 @@ spec:
   tls: {{-  toYaml . | nindent 3 }}
   {{- end }}
 {{- end }}
+---
 {{- end }}
 {{- end }}

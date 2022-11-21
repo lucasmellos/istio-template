@@ -16,7 +16,7 @@ destionationrule:
   enabled: false
 
 gateway:
-  enabled: true
+  enabled: false
   rules:
     - name: test
       protocols:
@@ -38,55 +38,66 @@ gateway:
 
 
 virtualservice:
-  enabled: false
+  enabled: true
   rules:
-    - name: test1
-      gatewayName: test1
+    - name: queryservice
+      gatewayName: signozqueryservice
       hosts: 
-      - mydns.com
-      namespace: "l1-web-deptrack"
+      - queryservice-stg-gcp.swire.io
+      namespace: "l1-web-signoz"
 
       http:
-      - match:
-          - uri:
-              prefix: /api
-        route:
-          - destination:
-              host: apiserver
-              port:
-                number: 80
       - match:
           - uri:
               prefix: /
         route:
           - destination:
-              host: frontend
+              host: signoz-query-service
               port:
-                number: 80
-        
+                number: 8080
       tls: {}
-    - name: test
-      gatewayName: test
+    - name: frontend
+      gatewayName: signozmonitoring
       hosts: 
-      - myseconddns.com
-      namespace: "l1-web-deptrack"
-
+      - monitoring-stg-gcp.swiore.io
+      namespace: "l1-web-signoz"
       http:
-      - match:
-          - uri:
-              prefix: /api
-        route:
-          - destination:
-              host: apiserver
-              port:
-                number: 80
       - match:
           - uri:
               prefix: /
         route:
           - destination:
-              host: frontend
+              host: signoz-frontend
               port:
-                number: 80
-        
+                number: 3301
+      tls: {}
+    - name: alertmanager
+      gatewayName: signozalertmanager
+      hosts: 
+      - alertmanager-stg-gcp.swire.io
+      namespace: "l1-web-signoz"
+      http:
+      - match:
+          - uri:
+              prefix: /
+        route:
+          - destination:
+              host: signoz-alertmanager
+              port:
+                number: 9093
+      tls: {}
+    - name: otelcollector
+      gatewayName: signozotelcollector
+      hosts: 
+      - otelcollector-stg-gcp.swire.io
+      namespace: "l1-web-signoz"
+      http:
+      - match:
+          - uri:
+              prefix: /
+        route:
+          - destination:
+              host: signoz-otel-collector
+              port:
+                number: 4318
       tls: {}
