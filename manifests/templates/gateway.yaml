@@ -1,6 +1,7 @@
 {{- if .Values.gateway.enabled }}
 {{- with .Values.gateway.rules }}
 {{- range . }}
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -36,6 +37,5 @@ spec:
         credentialName: {{ .name }}-tls
   {{- end }}
 {{- end }}
----
 {{- end }}
 {{- end }}
