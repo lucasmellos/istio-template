@@ -1,6 +1,7 @@
 {{- if .Values.virtualservice.enabled }}
 {{- with .Values.virtualservice.rules }}
 {{- range . }}
+---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -20,6 +21,5 @@ spec:
   tls: {{-  toYaml . | nindent 3 }}
   {{- end }}
 {{- end }}
----
 {{- end }}
 {{- end }}
