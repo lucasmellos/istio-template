@@ -3,7 +3,17 @@ entries:
   istio-template:
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2022-11-21T17:00:46.221399-03:00"
+    created: "2022-11-22T14:01:16.356472-03:00"
+    description: A Helm chart that automates istio manifests
+    digest: a71afea6b3dc7608f5188bf544cfebf04800640e644dafee8898a9a1f6a3cb6e
+    name: istio-template
+    type: application
+    urls:
+    - https://lucasmellos.github.io/istio-template/istio-template-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 0.2.0
+    created: "2022-11-22T14:01:16.356129-03:00"
     description: A Helm chart that automates istio manifests
     digest: 64934361c9d8e212812f18ac32ddc121d3bea523e46d07ba1ca33d050ba4730c
     name: istio-template
@@ -13,7 +23,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2022-11-21T17:00:46.221094-03:00"
+    created: "2022-11-22T14:01:16.355581-03:00"
     description: A Helm chart that automates istio manifests
     digest: a9e094b77eb02df4dbb2a0a7812f2deaaec731975f4b1835df8cbfd662ab19d7
     name: istio-template
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://lucasmellos.github.io/istio-template/istio-template-0.1.0.tgz
     version: 0.1.0
-generated: "2022-11-21T17:00:46.220549-03:00"
+generated: "2022-11-22T14:01:16.355038-03:00"

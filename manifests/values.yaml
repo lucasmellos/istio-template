@@ -1,16 +1,3 @@
-# hosts:
-#   - mydns.com
-
-#   https:
-#     enabled: true
-#     port: 443
-
-tls:
-  enabled: false
-  mode: SIMPLE
-  dnsNames: 
-  - mydns.com
-  issuerName: "letsencrypt-prod-cluster"
 
 destionationrule:
   enabled: false
@@ -38,7 +25,7 @@ gateway:
 
 
 virtualservice:
-  enabled: true
+  enabled: false
   rules:
     - name: queryservice
       gatewayName: signozqueryservice
